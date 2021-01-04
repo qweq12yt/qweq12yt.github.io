@@ -3,5 +3,9 @@ function test() {
 }
 
 function over() {
-    document.getElementById('scripted').innerHTML = 'Almost there';
+    document.getElementById('scripted').innerHTML = 'Almost there!';
+}
+
+function out() {
+    document.getElementById('scripted').innerHTML = 'Awww... So close!';
 }
