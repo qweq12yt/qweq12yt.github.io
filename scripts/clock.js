@@ -8,7 +8,7 @@ function updateAll() {
 }
 
 function addRate() {
-    dict.rate += 0.01;
+    vars.rate += 0.01;
 }
 
 var f = {
