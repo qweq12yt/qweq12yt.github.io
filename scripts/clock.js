@@ -1,2 +1,2 @@
-// var screen = setInterval(updateScreen(), 1);
-var logic = setInterval(updateLogic(), 1000);
+const GLOBAL_TIMING = 250;
+var clock = updateClock();
