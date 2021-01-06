@@ -1,11 +1,30 @@
-const GLOBAL_TIMING = 250;
-var clock = setInterval(updateClock, GLOBAL_TIMING);
+const GLOBAL_TIMING = 100;
+var clock = setInterval(updateAll, GLOBAL_TIMING);
 
-function updateClock(){
-    document.getElementById("clock").innerHTML = d.toLocaleTimeString();
-    coins++;
-    document.getElementById("coins").innerHTML = coins;
+function updateAll() {
+    for(key in dict){
+        dict[key]();
+    }
 }
 
-var d = new Date();
-var coins = 0;
+function addRate() {
+    dict.rate += 0.01;
+}
+
+var dict = {
+    updateClock : function(){
+        var d = new Date();
+        document.getElementById("clock").innerHTML = d.toLocaleTimeString();
+    },
+    updateCoins : function(){
+        document.getElementById("coins").innerHTML = Math.trunc(coins);
+    },
+    
+    addCoins : function(){
+        this.coins += this.rate
+    },
+
+    
+    coins : 0,
+    rate : 0.01
+}
