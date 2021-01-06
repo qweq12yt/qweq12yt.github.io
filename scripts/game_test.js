@@ -11,7 +11,7 @@ function updateLogic() {
         dict[key]();
     }
 }
-
+/*
 function updateScreen() {
     var dict = fields;
     for(var key in dict){
@@ -19,6 +19,7 @@ function updateScreen() {
         document.getElementById(field.id).innerHTML = field.value;
     }
 }
+*/
 
 var d = new Date();
 var currentTime = "";
