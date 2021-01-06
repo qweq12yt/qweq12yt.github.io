@@ -26,11 +26,11 @@ var coin = 0;
 var rate = 1;
 
 var logic = {
-    updateClock = function() {
+    updateClock : function() {
         currentTime = d.toLocaleTimeString();
     },
 
-    addCoin = function(x) {
+    addCoin : function(x) {
         coin += rate
     }
 }
