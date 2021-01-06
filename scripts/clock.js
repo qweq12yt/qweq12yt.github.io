@@ -1,16 +1,14 @@
 const GLOBAL_TIMING = 100;
 var clock = setInterval(updateAll, GLOBAL_TIMING);
 
+// Updates all timed logic
 function updateAll() {
     for(key in f){
         f[key]();
     }
 }
 
-function addRate() {
-    vars.rate += 0.01;
-}
-
+// These functions run every GLOBAL_TIMING miliseconds
 var f = {
     updateClock : function(){
         var d = new Date();
@@ -29,7 +27,14 @@ var f = {
     },
 }
 
+// Variable dictionary
 var vars = {
     coins : 0,
     rate : 0.01
 }
+
+// Here beggins all functions directly used in user inputs
+function addRate() {
+    vars.rate += 0.01;
+}
+
