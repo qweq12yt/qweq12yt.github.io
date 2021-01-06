@@ -1,11 +1,8 @@
 const GLOBAL_TIMING = 250;
-var clock = setInterval(updateClock(d), GLOBAL_TIMING);
+var clock = setInterval(updateClock(), GLOBAL_TIMING);
 
-function updateClock(d){
-    document.getElementById("clock").innerHTML = d.toLocaleTimeString();
-    coins++;
-    document.getElementById("coins").innerHTML = coins;
+function updateClock() {
+  var d = new Date();
+  document.getElementById("demo").innerHTML = d.toLocaleTimeString();
 }
-
-var d = new Date();
 var coins = 0;
