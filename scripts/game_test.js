@@ -1,24 +1,41 @@
-function updateTime() {
-    document.getElementById("time").innerHTML = Date.now();
+class field {
+    constructor(value, id){
+        this.value = value;
+        this.id = id;
+    }
 }
 
+function updateLogic() {
+    var dict = logic;
+    for(var key in dict){
+        dict[key]();
+    }
+}
+
+function updateScreen() {
+    var dict = fields;
+    for(var key in dict){
+        var field = dict[key];
+        document.getElementById(field.id).innerHTML = field.value;
+    }
+}
+
+var d = new Date();
+var currentTime = "";
 var coin = 0;
+var rate = 1;
 
-function mineCoin() {
-    coin++
-    document.getElementById("coin").innerHTML = coin;
+var logic = {
+    updateClock = function() {
+        currentTime = d.toLocaleTimeString();
+    },
+
+    addCoin = function(x) {
+        coin += rate
+    }
 }
 
-class Resource {
-    constructor(){
-        this.total = 0;
-    }
-
-    addResource(){
-        this.total++;
-    }
-
-    updateScreen(){
-        document.getElementById("test").innerHTML = this.total;
-    }
+var fields = {
+    clock: new field(currentTime, "clock"),
+    coins: new field(coin, "coins")
 }
