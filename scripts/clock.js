@@ -18,7 +18,7 @@ var f = {
         document.getElementById("coins").innerHTML = "Coins: " + Math.trunc(vars.coins);
     },
     updateRate : function() {
-        document.getElementById("rate").innerHTML = "Rate of Coins: " + vars.rate;
+        document.getElementById("rate").innerHTML = "Rate of Coins: " + (vars.rate * 10).toFixed(3) + " coins/s";
     },
 
     
@@ -37,4 +37,3 @@ var vars = {
 function addRate() {
     vars.rate += 0.01;
 }
-
