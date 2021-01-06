@@ -6,3 +6,5 @@ function updateClock(){
 
 var d = new Date();
 var coins = 0;
+
+export default updateClock;
