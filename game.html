@@ -1,15 +1,43 @@
 <!DOCTYPE html>
 <html>
 	<head>
-
+		<link rel="stylesheet" href="game.css">
 	</head>
 	<body>
-		<script src="/scripts/clock.js"></script>
+		<script src="/scripts/beta_game.js"></script>
+		<div class="hud stats-bar top-bar">
+			<p class="graphics">MANY STATS</p>
+		</div>
+		<div id="screen-menu-container">
+			<div class="hud side-menu left-menu">
+				<p class="side-menu-title">LEFT MENU</p>
+				<div class="page-select">
+					<button class="page-button">1</button>
+					<button class="page-button">2</button>
+					<button class="page-button">3</button>
+					<button class="page-button">4</button>
+					<button class="page-button">5</button>
+					<button class="page-button">6</button>
+				</div>
+			</div>
+			<div class="hud side-menu right-menu">
+				<p class="side-menu-title">RIGHT MENU</p>
+				<div class="page-select">
+					<button class="page-button">1</button>
+					<button class="page-button">2</button>
+					<button class="page-button">3</button>
+					<button class="page-button">4</button>
+					<button class="page-button">5</button>
+					<button class="page-button">6</button>
+				</div>
+			</div>
+			<div class="hud screen">
+				<p class="graphics" id="main-screen">>>> WAITING FOR INPUT _</p>
+			</div>
+		</div>
+		<div class="hud stats-bar bottom-bar">
+			<p class="graphics">EVEN MORE STATS</p>
+		</div>
 
-		<p id="clock"></p>
-		<p id="coins"></p>
-		<p id="rate"></p>
-		
-		<button onclick="addRate()">Add Rate</button>
 	</body>
 </html>

@@ -1,0 +1,75 @@
+body {
+    background-color: black;
+    margin:auto;
+    font-family: "Consolas", "Lucida Console", monospace;
+    font-style: normal;
+    font-size: 10pt;
+}
+
+.hud {
+    background-color: rgb(61, 61, 61);
+}
+
+.side-menu {
+    height:600px;
+    width: 210px;
+    float:left
+}
+
+.right-menu {
+    float:right;
+    
+    
+}
+
+.stats-bar {
+    width: 800px;
+    height: 50px;
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.screen {
+    width: 800px;
+    height: 600px;
+    margin:auto;
+}
+
+#screen-menu-container {
+    width: 1240px;
+    height: auto;
+    margin: auto;
+}
+
+.page-select {
+    margin: auto;
+    margin-top: 5px;
+    width: fit-content;
+}
+
+.page-button {
+    width: fit-content;
+    height: fit-content;
+}
+
+.side-menu-title {
+    height: 10pt;
+    margin:auto;
+    margin-top:5px; 
+    text-align: center;
+    font-weight: bold;
+    color: #FFFFFF;
+}
+
+.graphics {
+    color: #00FF00;
+    font-size:10pt;
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+#main-screen {
+    font-size: 15pt;
+}
