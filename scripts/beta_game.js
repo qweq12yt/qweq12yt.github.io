@@ -17,7 +17,7 @@ var logic = {
         vars.coins += vars.rate;
     },
     blinkCursor : function(){
-        cursor_hidden = ! cursor_hidden;
+        vars.cursor_hidden = ! vars.cursor_hidden;
     },
     modifyScreenState : function() {
         if (vars.cursor_hidden) {
