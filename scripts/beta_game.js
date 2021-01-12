@@ -1,13 +1,11 @@
 const GLOBAL_TIMING = 100;  // time in miliseconds
 var clock = setInterval(updateAll, GLOBAL_TIMING);
 
-import("./sprites.js")
-
 // graphics object
 var graphics = {
     screen : "",        // what is sent to the html
     screen_array : [],  // buffer for screen
-    max_y : 73,
+    max_y : 72,
     max_x : 26,
     updateScreen : function() {
         var string = '';
@@ -21,18 +19,26 @@ var graphics = {
         this.screen = string;
     },
 
-    loadAscii : function() {
-        file = new FileReader()
-        this.temp = file;
-        
+    loadSpriteOnArray : function(sprite, x=0, y=0) {
+        for (i = 0; i < sprite.length; i++) {
+            for (j = 0; j < sprite[i].length; j++){
+                try {
+                    this.screen_array[x + i][y + j] = sprite[i][j];
+                }
+                catch (e){
+                    return;
+                }
+            }
+        }
     },
-    temp : undefined,
+
+
 }
 // Sets up graphics object's array
 for (i = 0; i < graphics.max_x; i++) {
     var temp = [];
     for (j = 0; j < graphics.max_y; j++) {
-        temp[j] = "" + (j % 10);
+        temp[j] = " ";
     }
     graphics.screen_array[i] = temp;
 }
@@ -87,11 +93,12 @@ function addRate() {
 }
 
 function debug() {
-    graphics.loadAscii();
+    graphics.loadSpriteOnArray(sprites.fragmentation_test, (vars.debug_counter - 1) * 3, (vars.debug_counter - 1) * 3);
+    vars.debug_counter++;
 }
 
 
 
 
 // this seems rather cumbersome and silly taking in account how classes work... i don't care though
-
+var sprites = {altar : ["------","|....|","------"], fragmentation_test : ["---------","|....","---------"], };

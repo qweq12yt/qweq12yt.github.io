@@ -1,7 +1,7 @@
 body {
     background-color: black;
     margin:auto;
-    font-family: monospace;
+    font-family: "Consolas";
     font-style: normal;
     font-size: 10pt;
 }
@@ -71,4 +71,5 @@ body {
 
 #main-screen {
     font-size: 20px;
+    text-align: center;
 }
