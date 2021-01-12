@@ -1,3 +1,5 @@
+var sprites = {altar : ["------","|....|","------"], ball : [" ### ","#   #"," ### "], fragmentation_test : ["---------","|....","---------"], };
+
 const GLOBAL_TIMING = 100;  // time in miliseconds
 var clock = setInterval(updateAll, GLOBAL_TIMING);
 
@@ -19,7 +21,19 @@ var graphics = {
         this.screen = string;
     },
 
+    clearScreen : function(){
+        for (i = 0; i < graphics.max_x; i++) {
+            var temp = [];
+            for (j = 0; j < graphics.max_y; j++) {
+                temp[j] = " ";
+            }
+            graphics.screen_array[i] = temp;
+        }
+    },
+
     loadSpriteOnArray : function(sprite, x=0, y=0) {
+        x = Math.trunc(x);
+        y = Math.trunc(y);
         for (i = 0; i < sprite.length; i++) {
             for (j = 0; j < sprite[i].length; j++){
                 try {
@@ -31,17 +45,53 @@ var graphics = {
             }
         }
     },
-
-
 }
-// Sets up graphics object's array
-for (i = 0; i < graphics.max_x; i++) {
-    var temp = [];
-    for (j = 0; j < graphics.max_y; j++) {
-        temp[j] = " ";
+
+// Variable dictionary
+var vars = {
+    debug_counter : 1,
+}
+
+var gameObjects = {
+    ball : {
+        sprite : sprites.ball,
+        x : 0,
+        y : 0,
+        xspeed : 1.5,
+        yspeed : 1,
+        move : function() {
+            this.x += this.xspeed;
+            this.y += this.yspeed;
+        },
+
+        checkCollision : function() {
+            if (this.x + 5> graphics.max_x) {
+                this.xspeed *= -1;
+            }
+            if (this.x < 0) {
+                this.xspeed *= -1;
+            }
+            if (this.y + 3> graphics.max_y) {
+                this.yspeed *= -1;
+            }
+            if (this.y < 0) {
+                this.yspeed *= -1;
+            }
+        },
+
+        draw : function() {
+            graphics.loadSpriteOnArray(this.sprite, this.x, this.y)
+        }
     }
-    graphics.screen_array[i] = temp;
 }
+
+// Here beggins all functions directly used in user inputs
+
+function debug() {
+    graphics.loadSpriteOnArray(sprites.fragmentation_test, (vars.debug_counter - 1) * 3, (vars.debug_counter - 1) * 3);
+    vars.debug_counter++;
+}
+
 
 // Updates all timed logic
 function updateAll() {
@@ -55,17 +105,22 @@ function updateAll() {
 
 // These functions run every GLOBAL_TIMING miliseconds, logic updates
 var logic = {
-    accumulateCoins : function(){
-        vars.coins += vars.rate;
-    },
-    blinkCursor : function(){
-        vars.cursor_hidden = ! vars.cursor_hidden;
-    },
-
+    updateGameObjects : function(){
+        gameObjects.ball.move();
+        gameObjects.ball.checkCollision();
+    }
 }
 
 // These functions run every GLOBAL_TIMING miliseconds, drawing updates
 var draw = {
+    
+    clearScreen : function(){
+        graphics.clearScreen();
+    },
+
+    drawSpriteLayer : function name() {
+        gameObjects.ball.draw();
+    },
 
     updateScreen : function(){
         graphics.updateScreen();
@@ -73,32 +128,9 @@ var draw = {
 
     drawScreen : function(){
         document.getElementById("main-screen").innerHTML = graphics.screen;
-    }
+    },
+
+
 }
-
-// Variable dictionary
-var vars = {
-    coins : 0,
-    rate : 0.01,
-    cursor_hidden : false,
-
-    debug_counter : 1,
-}
-
-
-
-// Here beggins all functions directly used in user inputs
-function addRate() {
-    vars.rate += 0.01;
-}
-
-function debug() {
-    graphics.loadSpriteOnArray(sprites.fragmentation_test, (vars.debug_counter - 1) * 3, (vars.debug_counter - 1) * 3);
-    vars.debug_counter++;
-}
-
-
-
 
 // this seems rather cumbersome and silly taking in account how classes work... i don't care though
-var sprites = {altar : ["------","|....|","------"], fragmentation_test : ["---------","|....","---------"], };

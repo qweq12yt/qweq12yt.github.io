@@ -1,7 +1,10 @@
 from os import listdir
 
-output = open('scripts/beta_game.js', 'a')
-to_file = '\nvar sprites = {'
+original = open('scripts/beta_game.js').readlines()
+
+output = open('scripts/beta_game.js', 'w')
+
+to_file = 'var sprites = {'
 file_list = listdir('sprites')
 for name in file_list:
     string = name[:-4] + ' : '
@@ -15,4 +18,5 @@ for name in file_list:
 to_file += "};\n"
 
 output.write(to_file)
+output.writelines(original)
 output.close()
