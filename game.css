@@ -1,51 +1,40 @@
 body {
     background-color: black;
     margin:auto;
-    font-family: "Consolas";
-    font-style: normal;
-    font-size: 10pt;
+    margin-top: 10px;
+    width: 1280px;
+    height: 720px;
 }
 
 .hud {
     background-color: rgb(61, 61, 61);
+    font-family: "Consolas";
+    font-style: normal;
+    font-size: 10pt;
+    vertical-align: top;
 }
 
 .side-menu {
-    height:600px;
-    width: 210px;
-    float:left
+    background-color: indigo;
 }
 
-.right-menu {
-    float:right;
-    
-    
+.text-screen {
+    background-color: lightgreen;
 }
 
-.stats-bar {
-    width: 800px;
-    height: 50px;
-    margin: auto;
-    margin-bottom: 10px;
-    margin-top: 10px;
+.ascii-screen {
+    background-color: gray;
 }
 
-.screen {
-    width: 800px;
-    height: 600px;
-    margin:auto;
-}
+.bottom-menu {
+    background-color: saddlebrown;
 
-#screen-menu-container {
-    width: 1240px;
-    height: auto;
-    margin: auto;
 }
 
 .page-select {
-    margin: auto;
-    margin-top: 5px;
     width: fit-content;
+    margin: auto;
+    margin-top: 10px;
 }
 
 .page-button {
@@ -60,6 +49,12 @@ body {
     text-align: center;
     font-weight: bold;
     color: #FFFFFF;
+}
+
+.side-menu-page {
+    font-size: 20pt;
+    text-align: center;
+    color: greenyellow;
 }
 
 .graphics {

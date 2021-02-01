@@ -5,40 +5,43 @@
 	</head>
 	<body>
 		<script src="./scripts/beta_game.js"></script>
-		<button onclick="debug()">Debug</button>
-		<div class="hud stats-bar top-bar">
-			<p class="graphics">MANY STATS</p>
-		</div>
-		<div id="screen-menu-container">
-			<div class="hud side-menu left-menu">
-				<p class="side-menu-title">LEFT MENU</p>
-				<div class="page-select">
-					<button class="page-button">1</button>
-					<button class="page-button">2</button>
-					<button class="page-button">3</button>
-					<button class="page-button">4</button>
-					<button class="page-button">5</button>
-					<button class="page-button">6</button>
-				</div>
-			</div>
-			<div class="hud side-menu right-menu">
-				<p class="side-menu-title">RIGHT MENU</p>
-				<div class="page-select">
-					<button class="page-button">1</button>
-					<button class="page-button">2</button>
-					<button class="page-button">3</button>
-					<button class="page-button">4</button>
-					<button class="page-button">5</button>
-					<button class="page-button">6</button>
-				</div>
-			</div>
-			<div class="hud screen">
-				<pre class="graphics" id="main-screen"></pre>
-			</div>
-		</div>
-		<div class="hud stats-bar bottom-bar">
-			<p class="graphics">EVEN MORE STATS</p>
-		</div>
+		<table style="border-collapse: collapse; width: 100%; height: 100%;" border="0">
+			<tbody>
+				<tr style="height: 50%">
+					<td class="hud side-menu" style="width: 25%;" rowspan="2">
 
+						<div class="page-select">
+							<button onclick="changePage(this)">1</button>
+							<button onclick="changePage(this)">2</button>
+							<button onclick="changePage(this)">3</button>
+							<button onclick="changePage(this)">4</button>
+							<button onclick="changePage(this)">5</button>
+						</div>
+						<div class="side-menu-page" id="page-1">1</div>
+						<div class="side-menu-page" id="page-2">2</div>
+						<div class="side-menu-page" id="page-3">3</div>
+						<div class="side-menu-page" id="page-4">4</div>
+						<div class="side-menu-page" id="page-5">5</div>
+
+					</td>
+					<td class="hud text-screen" style="width: 45%" colspan="2"></td>
+					<td class="hud ascii-screen" style="width: 30%">
+						<pre class="graphics" id="main-screen"></pre>
+					</td>
+				</tr>
+				<tr style="height: 50%">
+					<td class="hud bottom-menu" colspan="3">
+						<div class="page-select">
+							<button>1</button>
+							<button>2</button>
+							<button>3</button>
+							<button>4</button>
+							<button>5</button>
+						</div>
+					</td>
+				</tr>
+				</tbody>
+			</table>
 	</body>
+
 </html>

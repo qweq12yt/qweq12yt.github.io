@@ -1,11 +1,13 @@
 var sprites = {altar : ["------","|....|","------"], ball : [" ### ","#...#"," ### "], fragmentation_test : ["---------","|....","---------"], };
 
+var page = 1;
+
 // graphics object
 var graphics = {
     screen : "",        // what is sent to the html
     screen_array : [],  // buffer for screen
-    max_x : 72,
-    max_y : 26,
+    max_x : 32,
+    max_y : 15,
     updateScreen : function() {
         var string = '';
         for (y = 0; y < this.max_y; y++) {
@@ -36,7 +38,7 @@ var graphics = {
                 try {
                     this.screen_array[x + i][y + j] = sprite[i][j];
                 }
-                catch (e){
+                catch (e){  // prevents crashes when sprites are drawn outside the area
                     return;
                 }
             }
@@ -58,8 +60,8 @@ var gameObjects = {
 
         checkCollision : function() {           // for some reason i need those numbers ???, 
             if (this.x + 5 > graphics.max_x) {  // these are not actually the object's dimmension,
-                this.xspeed *= -1;              // need to fix this next
-            }
+                this.xspeed *= -1;              // need to fix this some day, or maybe not
+            }                                   // don't plan on clever animations anyway
 
             if (this.x - 1 < 0) {
                 this.xspeed *= -1;
@@ -126,6 +128,15 @@ var clock = setInterval(updateGame, GLOBAL_TIMING);
 function debug() {
     graphics.loadSpriteOnArray(sprites.fragmentation_test, (vars.debug_counter - 1) * 3, (vars.debug_counter - 1) * 3);
     vars.debug_counter++;
+}
+
+function changePage(id) {
+    var pages = document.getElementsByClassName("side-menu-page")
+    for(i = 0; i < pages.length; i++) {
+        pages[i].style.display = "none";
+    }
+    document.getElementById("page-" + id.innerHTML).style.display = "initial";
+    
 }
 
 // this seems rather cumbersome and silly taking in account how classes work... i don't care though
